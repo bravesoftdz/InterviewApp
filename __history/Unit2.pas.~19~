@@ -1,0 +1,77 @@
+unit Unit2;
+
+interface
+
+uses Classes;
+
+  type
+    TTimeChangedEvent = procedure(sec, min, hour : ShortInt);
+
+  type
+    TMyThread = class(TThread)
+  private
+    var s, m, h : ShortInt;
+    timeChangedEventHandler : TTimeChangedEvent;
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(sec, min, hour : ShortInt; timeChangedEventHandlerP : TTimeChangedEvent);
+  end;
+
+  type
+    TMyTimer = class
+    private
+      var s, m, h : integer;
+      timeChangedEventHandler : TTimeChangedEvent;
+      myThread : TMyThread;
+    public
+      constructor Create(sec, min, hour : ShortInt; timeChangedEventHandlerP : TTimeChangedEvent);
+      procedure Start();
+      procedure Stop();
+   end;
+
+  implementation
+
+constructor TMyTimer.Create(sec, min, hour : ShortInt; timeChangedEventHandlerP : TTimeChangedEvent);
+begin
+  s := sec;
+  m := min;
+  h := hour;
+  timeChangedEventHandler := timeChangedEventHandlerP;
+end;
+
+procedure TMyTimer.Start();
+begin
+  myThread := TMyThread.Create(s, m, h, timeChangedEventHandler);
+  //Thread.Execute;
+end;
+
+procedure TMyTimer.Stop();
+begin
+  myThread.Terminate;
+end;
+
+constructor TMyThread.Create(sec, min, hour : ShortInt; timeChangedEventHandlerP : TTimeChangedEvent);
+begin
+  inherited Create(false);
+  s := sec;
+  m := min;
+  h := hour;
+  timeChangedEventHandler := timeChangedEventHandlerP;
+end;
+
+procedure TMyThread.Execute;
+var
+  i : Integer;
+begin
+  for i := 0 to 10 do
+  begin
+    if Terminated then break;
+
+    timeChangedEventHandler(1,3,0);
+    Sleep(1000);
+
+  end;
+end;
+
+end.

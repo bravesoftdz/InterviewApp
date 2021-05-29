@@ -1,6 +1,7 @@
 object Form1: TForm1
   Left = 400
   Top = 199
+  BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Interview App'
   ClientHeight = 415
@@ -9594,7 +9595,7 @@ object Form1: TForm1
         OnMouseEnter = pnlTimerMouseEnter
         OnMouseLeave = pnlTimerMouseLeave
       end
-      object lblTimer: TLabel
+      object lblMenuTimer: TLabel
         Left = 64
         Top = 12
         Width = 49
@@ -12880,6 +12881,7 @@ object Form1: TForm1
           Font.Name = 'Century Gothic'
           Font.Style = [fsBold]
           ParentFont = False
+          OnClick = btnStartClick
         end
         object btnStop: TSpeedButton
           Left = 272
@@ -12892,6 +12894,20 @@ object Form1: TForm1
           Font.Charset = ANSI_CHARSET
           Font.Color = clRed
           Font.Height = -23
+          Font.Name = 'Century Gothic'
+          Font.Style = [fsBold]
+          ParentFont = False
+          OnClick = btnStopClick
+        end
+        object lblTimer: TLabel
+          Left = 136
+          Top = 112
+          Width = 228
+          Height = 80
+          Caption = '0:05:00'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -67
           Font.Name = 'Century Gothic'
           Font.Style = [fsBold]
           ParentFont = False

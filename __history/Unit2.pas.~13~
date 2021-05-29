@@ -1,0 +1,76 @@
+unit Unit2;
+
+interface
+
+uses Classes;
+
+  type
+    TCallBack = procedure(sec, min, hour : integer);
+
+  type
+    TMyThread = class(TThread)
+  private
+    var s, m, h : Integer;
+    timeChangedEventHandler : TCallBack;
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(sec, min, hour : integer; timeChangedEventHandlerP : TCallBack);
+  end;
+
+  type
+    TMyTimer = class
+    private
+      var s, m, h : Integer;
+      timeChangedEventHandler : TCallBack;
+      myThread : TMyThread;
+    public
+      constructor Create(sec, min, hour : integer; timeChangedEventHandlerP : TCallBack);
+      procedure Start();
+      procedure Stop();
+   end;
+
+  implementation
+
+constructor TMyTimer.Create(sec, min, hour : integer; timeChangedEventHandlerP : TCallBack);
+begin
+  s := sec;
+  m := min;
+  h := hour;
+  timeChangedEventHandler := timeChangedEventHandlerP;
+end;
+
+procedure TMyTimer.Start();
+begin
+  myThread := TMyThread.Create(s, m, h, timeChangedEventHandler);
+  myThread.Execute;
+end;
+
+procedure TMyTimer.Stop();
+begin
+  myThread.Terminate;
+end;
+
+constructor TMyThread.Create(sec, min, hour : integer; timeChangedEventHandlerP : TCallBack);
+begin
+  s := sec;
+  m := min;
+  h := hour;
+  timeChangedEventHandler := timeChangedEventHandlerP;
+end;
+
+procedure TMyThread.Execute;
+var
+  i : Integer;
+begin
+  for i := 0 to 10 do
+  begin
+    if Terminated then break;
+
+    timeChangedEventHandler(1,3,0);
+    Sleep(3000);
+
+  end;
+end;
+
+end.

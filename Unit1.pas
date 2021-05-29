@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.Imaging.jpeg, Vcl.ExtCtrls, Vcl.WinXPanels, Vcl.ComCtrls, Vcl.Buttons;
+  Vcl.Imaging.jpeg, Vcl.ExtCtrls, Vcl.WinXPanels, Vcl.ComCtrls, Vcl.Buttons, TimerUnit;
 
 type
   TForm1 = class(TForm)
@@ -13,7 +13,7 @@ type
     imgPnlMenu: TImage;
     pnlTimer: TPanel;
     imgTimer: TImage;
-    lblTimer: TLabel;
+    lblMenuTimer: TLabel;
     pnlParent: TPanel;
     pgcParent: TPageControl;
     pnlApi: TPanel;
@@ -24,33 +24,65 @@ type
     Label1: TLabel;
     btnStart: TSpeedButton;
     btnStop: TSpeedButton;
+    lblTimer: TLabel;
     procedure pnlTimerMouseEnter(Sender: TObject);
     procedure pnlTimerMouseLeave(Sender: TObject);
     procedure pnlTimerClick(Sender: TObject);
     procedure pnlApiClick(Sender: TObject);
     procedure pnlApiMouseEnter(Sender: TObject);
     procedure pnlApiMouseLeave(Sender: TObject);
+    procedure btnStartClick(Sender: TObject);
+    procedure btnStopClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-  private
-  public
   end;
 
 var
   Form1 : TForm1;
-  bruh : integer;
+  timer : TMyTimer;
+
 implementation
 
 {$R *.dfm}
 
-procedure TimeChangedHandler(m: integer);
+procedure TimeChangedHandler(sec, min, hour : ShortInt);
+var
+strSec, strMin : string;
 begin
-  ShowMessage('time');
+  if sec < 10 then
+  begin
+    strSec := '0' + IntToStr(sec);
+  end
+  else
+    strSec := IntToStr(sec);
+
+  if min < 10 then
+  begin
+    strMin := '0' + IntToStr(min);
+  end
+  else
+    strMin := IntToStr(min);
+
+   Form1.lblTimer.Caption := IntToStr(hour) + ':' + strMin + ':' + strSec;
 end;
 
+procedure TimerTerminatedHandler();
+begin
+  ShowMessage('TERMINATED');
+end;
+
+procedure TForm1.btnStartClick(Sender: TObject);
+begin
+  timer.Start(20,2,0);
+end;
+
+procedure TForm1.btnStopClick(Sender: TObject);
+begin
+  timer.Stop;
+end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  bruh := 4;
+  timer := TMytimer.Create(TimeChangedHandler, TimerTerminatedHandler);
 end;
 
 procedure TForm1.pnlApiClick(Sender: TObject);
