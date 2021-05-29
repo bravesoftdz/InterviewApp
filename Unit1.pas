@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.Imaging.jpeg, Vcl.ExtCtrls, Vcl.WinXPanels, Vcl.ComCtrls;
+  Vcl.Imaging.jpeg, Vcl.ExtCtrls, Vcl.WinXPanels, Vcl.ComCtrls, Vcl.Buttons;
 
 type
   TForm1 = class(TForm)
@@ -21,26 +21,37 @@ type
     lblApi: TLabel;
     tabTimer: TTabSheet;
     tabApi: TTabSheet;
-    lblTab1: TLabel;
     Label1: TLabel;
+    btnStart: TSpeedButton;
+    btnStop: TSpeedButton;
     procedure pnlTimerMouseEnter(Sender: TObject);
     procedure pnlTimerMouseLeave(Sender: TObject);
     procedure pnlTimerClick(Sender: TObject);
     procedure pnlApiClick(Sender: TObject);
     procedure pnlApiMouseEnter(Sender: TObject);
     procedure pnlApiMouseLeave(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var
-  Form1: TForm1;
-
+  Form1 : TForm1;
+  bruh : integer;
 implementation
 
 {$R *.dfm}
+
+procedure TimeChangedHandler(m: integer);
+begin
+  ShowMessage('time');
+end;
+
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  bruh := 4;
+end;
 
 procedure TForm1.pnlApiClick(Sender: TObject);
 begin

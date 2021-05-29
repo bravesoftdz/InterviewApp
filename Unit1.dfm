@@ -13,6 +13,7 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnlMenu: TPanel
@@ -12865,12 +12866,35 @@ object Form1: TForm1
       TabOrder = 0
       object tabTimer: TTabSheet
         TabVisible = False
-        object lblTab1: TLabel
-          Left = 3
-          Top = 3
-          Width = 28
-          Height = 13
-          Caption = 'TAB 1'
+        object btnStart: TSpeedButton
+          Left = 96
+          Top = 304
+          Width = 129
+          Height = 41
+          Cursor = crHandPoint
+          Caption = 'START'
+          Flat = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clMenuHighlight
+          Font.Height = -23
+          Font.Name = 'Century Gothic'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object btnStop: TSpeedButton
+          Left = 272
+          Top = 304
+          Width = 129
+          Height = 41
+          Cursor = crHandPoint
+          Caption = 'STOP'
+          Flat = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clRed
+          Font.Height = -23
+          Font.Name = 'Century Gothic'
+          Font.Style = [fsBold]
+          ParentFont = False
         end
       end
       object tabApi: TTabSheet
