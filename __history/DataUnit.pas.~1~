@@ -1,0 +1,63 @@
+unit DataUnit;
+
+interface
+
+uses
+  System.Generics.Collections;
+
+type
+
+  TLanguagesDTO = class
+  private
+    FName: string;
+  published
+    property Name: string read FName write FName;
+  end;
+
+  TCurrenciesDTO = class
+  private
+    FCode: string;
+    FName: string;
+    FSymbol: string;
+  published
+    property Code: string read FCode write FCode;
+    property Name: string read FName write FName;
+    property Symbol: string read FSymbol write FSymbol;
+  end;
+
+  TItemDTO = class
+  private
+    FArea: Integer;
+    FCapital: string;
+    FCurrenciesArray: TArray<TCurrenciesDTO>;
+    FFlag: string;
+    FLanguagesArray: TArray<TLanguagesDTO>;
+    FName: string;
+    FPopulation: Integer;
+    FRegion: string;
+    FSubregion: string;
+    FTimezones: TArray<string>;
+  published
+    property Area: Integer read FArea write FArea;
+    property Capital: string read FCapital write FCapital;
+    property Currencies: TArray<TCurrenciesDTO> read FCurrenciesArray write FCurrenciesArray;
+    property Flag: string read FFlag write FFlag;
+    property Languages: TArray<TLanguagesDTO> read FLanguagesArray write FLanguagesArray;
+    property Name: string read FName write FName;
+    property Population: Integer read FPopulation write FPopulation;
+    property Region: string read FRegion write FRegion;
+    property Subregion: string read FSubregion write FSubregion;
+    property Timezones: TArray<string> read FTimezones write FTimezones;
+  public
+  end;
+
+  TRootDTO = class
+  private
+    FItemsArray: TArray<TItemDTO>;
+  published
+    property Items: TArray<TItemDTO> read FItemsArray write FItemsArray;
+  end;
+
+implementation
+
+end.

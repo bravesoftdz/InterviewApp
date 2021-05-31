@@ -1,0 +1,93 @@
+unit DataUnit;
+
+interface
+
+uses
+  System.Generics.Collections;
+
+type
+
+  TLanguagesDTO = class
+  private
+    FName: string;
+  published
+    property Name: string read FName write FName;
+  end;
+
+  TCurrenciesDTO = class
+  private
+    FCode: string;
+    FName: string;
+    FSymbol: string;
+  published
+    property Code: string read FCode write FCode;
+    property Name: string read FName write FName;
+    property Symbol: string read FSymbol write FSymbol;
+  end;
+
+  TItemDTO = class
+  private
+    FArea: double;
+    FCapital: string;
+
+    FFlag: string;
+    FName: string;
+    FPopulation: Integer;
+    FRegion: string;
+    FSubregion: string;
+
+    // Timezones, proper way to declare and use Arrays
+    // but... its time requiring so i've made public fields of arrays
+    FTimezones: array of string;
+    function GetTimezonesArray(Index: Integer): string;
+    function GetTimezonesArrayCount: Integer;
+    procedure SetTimezonesArray(Index: Integer; const Value: string);
+    procedure SetTimezonesArrayCount(Value: Integer);
+
+  public
+    // Not correct, but ok.
+    Languages: array of TLanguagesDTO;
+    FCurrenciesArray: array of TCurrenciesDTO;
+
+    property Area: double read FArea write FArea;
+    property Capital: string read FCapital write FCapital;
+    property Flag: string read FFlag write FFlag;
+    property Name: string read FName write FName;
+    property Population: Integer read FPopulation write FPopulation;
+    property Region: string read FRegion write FRegion;
+    property Subregion: string read FSubregion write FSubregion;
+    // Correct!
+    property Timezones[Index : Integer]: string read GetTimezonesArray write SetTimezonesArray;
+    property TimezonesArrayCount : integer read GetTimezonesArrayCount write SetTimezonesArrayCount;
+  public
+  end;
+
+  TRootDTO = class
+  private
+    FItemsArray: TArray<TItemDTO>;
+  published
+    property Items: TArray<TItemDTO> read FItemsArray write FItemsArray;
+  end;
+
+implementation
+function TItemDTO.GetTimezonesArray(Index: Integer): string;
+begin
+  Result := FTimezones[Index];
+end;
+
+function TItemDTO.GetTimezonesArrayCount: Integer;
+begin
+  Result := Length(FTimezones);
+end;
+
+procedure TItemDTO.SetTimezonesArray(Index: Integer; const Value: string);
+begin
+  FTimezones[Index] := Value;
+end;
+
+procedure TItemDTO.SetTimezonesArrayCount(Value: Integer);
+begin
+  SetLength(FTimezones, Value);
+end;
+
+end.

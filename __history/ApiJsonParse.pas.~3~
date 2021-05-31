@@ -1,0 +1,64 @@
+﻿unit ApiJsonParse;
+
+interface
+  uses DataUnit, System.Net.HttpClient, System.Json;
+
+  type
+    ApiCountries = class
+      private
+        FRoot : TRootDTO;
+      public
+        property Root : TRootDTO read Froot write Froot;
+        function GetCountryByName(name : string) : TItemDTO;
+    end;
+
+implementation
+
+function ApiCountries.GetCountryByName(name : string) : TItemDTO;
+var
+  query: String;
+  httpClient: THttpClient;
+  httpResponse: IHttpResponse;
+  response : string;
+
+  jsonValue, arrayElement: TJSonValue;
+  rootArray, itemArrayElement: TJSONArray;
+
+  root : TRootDTO;
+  item : TItemDTO;
+
+begin
+  query := 'https://restcountries.eu/rest/v2/name/' + name;
+
+  httpClient := THTTPClient.Create;
+
+  try
+    HttpResponse := HttpClient.Get(query);
+    response := HttpResponse.ContentAsString;
+  finally
+    HttpClient.Free;
+  end;
+
+  jsonValue := TJSonObject.ParseJSONValue(response);
+  rootArray := JsonValue as TJSONArray;
+
+  root := TRootDTO.Create;
+  SetLength(root.Items, rootArray.Count);
+
+  for arrayElement in rootArray do begin
+    item := TItemDTO.Create;
+    item.Name := arrayElement.GetValue<string>('name');
+    item.Capital := arrayElement.GetValue<string>('capital');
+    item.Area := arrayElement.GetValue<integer>('area');
+    item.Flag := arrayElement.GetValue<string>('flag');
+    item.Region := arrayElement.GetValue<string>('region');
+    item.Subregion := arrayElement.GetValue<string>('subregion');
+
+    itemArrayElement := arrayElement.GetValue<TArray<TCurrenciesDTO>>('currencies')
+    for  do
+
+  end;
+
+
+end;
+end.

@@ -1,0 +1,124 @@
+object TimerEdit: TTimerEdit
+  Left = 560
+  Top = 299
+  BorderStyle = bsNone
+  Caption = 'Edit Timer'
+  ClientHeight = 244
+  ClientWidth = 471
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poOwnerFormCenter
+  Visible = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lblHour: TLabel
+    Left = 24
+    Top = 91
+    Width = 50
+    Height = 23
+    Caption = 'Hours'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblMins: TLabel
+    Left = 96
+    Top = 91
+    Width = 41
+    Height = 23
+    Caption = 'Mins'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblSecs: TLabel
+    Left = 168
+    Top = 91
+    Width = 42
+    Height = 23
+    Caption = 'Secs'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object seHours: TSpinEdit
+    Left = 24
+    Top = 56
+    Width = 49
+    Height = 29
+    Ctl3D = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    MaxValue = 0
+    MinValue = 0
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 0
+    Value = 0
+  end
+  object seMins: TSpinEdit
+    Left = 96
+    Top = 56
+    Width = 57
+    Height = 29
+    Ctl3D = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    MaxValue = 0
+    MinValue = 0
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 1
+    Value = 0
+  end
+  object seSecs: TSpinEdit
+    Left = 168
+    Top = 56
+    Width = 57
+    Height = 29
+    Ctl3D = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    MaxValue = 0
+    MinValue = 0
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 2
+    Value = 0
+  end
+  object pnlDragClose: TPanel
+    Left = 0
+    Top = 0
+    Width = 471
+    Height = 33
+    Align = alTop
+    BevelOuter = bvNone
+    Color = clHotLight
+    ParentBackground = False
+    ShowCaption = False
+    TabOrder = 3
+  end
+end

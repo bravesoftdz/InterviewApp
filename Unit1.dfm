@@ -9549,7 +9549,7 @@ object Form1: TForm1
       Margins.Right = 0
       Margins.Bottom = 0
       BevelOuter = bvNone
-      Color = clAqua
+      Color = 16777098
       TabOrder = 0
       OnClick = pnlTimerClick
       OnMouseEnter = pnlTimerMouseEnter
@@ -9623,7 +9623,7 @@ object Form1: TForm1
       Margins.Right = 0
       Margins.Bottom = 0
       BevelOuter = bvNone
-      Color = clAqua
+      Color = 16777098
       TabOrder = 1
       OnClick = pnlApiClick
       OnMouseEnter = pnlApiMouseEnter
@@ -12862,7 +12862,7 @@ object Form1: TForm1
       Top = 0
       Width = 535
       Height = 415
-      ActivePage = tabTimer
+      ActivePage = tabApi
       Align = alClient
       TabOrder = 0
       object tabTimer: TTabSheet
@@ -12876,7 +12876,7 @@ object Form1: TForm1
           Caption = 'START'
           Flat = True
           Font.Charset = ANSI_CHARSET
-          Font.Color = clMenuHighlight
+          Font.Color = 15426879
           Font.Height = -23
           Font.Name = 'Century Gothic'
           Font.Style = [fsBold]
@@ -12900,30 +12900,355 @@ object Form1: TForm1
           OnClick = btnStopClick
         end
         object lblTimer: TLabel
-          Left = 136
-          Top = 112
-          Width = 228
-          Height = 80
-          Caption = '0:05:00'
+          Left = 118
+          Top = 110
+          Width = 269
+          Height = 93
+          Cursor = crHandPoint
+          Caption = '0:00:00'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
-          Font.Height = -67
+          Font.Height = -80
           Font.Name = 'Century Gothic'
           Font.Style = [fsBold]
           ParentFont = False
+          OnClick = lblTimerClick
+          OnMouseEnter = lblTimerMouseEnter
+          OnMouseLeave = lblTimerMouseLeave
         end
       end
       object tabApi: TTabSheet
         ImageIndex = 1
         TabVisible = False
-        object Label1: TLabel
+        object lblSearch: TLabel
           Left = 11
           Top = 11
-          Width = 35
-          Height = 13
-          Caption = 'Second'
+          Width = 81
+          Height = 21
+          Caption = 'Search by:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentFont = False
+        end
+        object btnSearch: TSpeedButton
+          Left = 189
+          Top = 11
+          Width = 169
+          Height = 51
+          Caption = 'Search'
+          Flat = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = 13766656
+          Font.Height = -19
+          Font.Name = 'Century Gothic'
+          Font.Style = [fsBold]
+          ParentFont = False
+          OnClick = btnSearchClick
+        end
+        object cbSearchParams: TComboBox
+          Left = 98
+          Top = 10
+          Width = 85
+          Height = 22
+          BevelEdges = []
+          BevelInner = bvNone
+          BevelOuter = bvNone
+          Style = csOwnerDrawFixed
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ItemIndex = 0
+          ParentFont = False
+          TabOrder = 0
+          Text = 'Name'
+          Items.Strings = (
+            'Name'
+            'ISO-code'
+            'Capital city')
+        end
+        object edValue: TEdit
+          Left = 11
+          Top = 38
+          Width = 172
+          Height = 24
+          BevelOuter = bvNone
+          BorderStyle = bsNone
+          Color = 14736593
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Century Gothic'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 1
+          OnKeyPress = edValueKeyPress
+        end
+        object pnlInfo: TPanel
+          Left = 0
+          Top = 68
+          Width = 527
+          Height = 337
+          Align = alBottom
+          BevelKind = bkSoft
+          BevelOuter = bvNone
+          TabOrder = 2
+          object imgFlag: TImage
+            Left = 329
+            Top = 11
+            Width = 178
+            Height = 118
+          end
+          object Label1: TLabel
+            Left = 9
+            Top = 12
+            Width = 67
+            Height = 21
+            Caption = 'Country:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lblCountry: TLabel
+            Left = 82
+            Top = 12
+            Width = 4
+            Height = 21
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label2: TLabel
+            Left = 181
+            Top = 284
+            Width = 92
+            Height = 21
+            Caption = 'Poputation:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lblPopulation: TLabel
+            Left = 279
+            Top = 284
+            Width = 4
+            Height = 21
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label3: TLabel
+            Left = 9
+            Top = 44
+            Width = 63
+            Height = 21
+            Caption = 'Capital:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lblCapital: TLabel
+            Left = 78
+            Top = 44
+            Width = 4
+            Height = 21
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label4: TLabel
+            Left = 9
+            Top = 78
+            Width = 58
+            Height = 21
+            Caption = 'Region:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lblRegion: TLabel
+            Left = 73
+            Top = 78
+            Width = 4
+            Height = 21
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label5: TLabel
+            Left = 181
+            Top = 242
+            Width = 43
+            Height = 21
+            Caption = 'Area:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lblArea: TLabel
+            Left = 230
+            Top = 243
+            Width = 4
+            Height = 21
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label6: TLabel
+            Left = 179
+            Top = 154
+            Width = 83
+            Height = 21
+            Caption = 'Timezones:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label7: TLabel
+            Left = 10
+            Top = 241
+            Width = 86
+            Height = 21
+            Caption = 'Currencies:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label8: TLabel
+            Left = 10
+            Top = 154
+            Width = 91
+            Height = 21
+            Caption = 'Languages:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label9: TLabel
+            Left = 10
+            Top = 114
+            Width = 86
+            Height = 21
+            Caption = 'Sub region:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lblSubRegion: TLabel
+            Left = 102
+            Top = 114
+            Width = 4
+            Height = 21
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+          end
+          object listTimezones: TListBox
+            Left = 181
+            Top = 181
+            Width = 92
+            Height = 37
+            Style = lbOwnerDrawVariable
+            BevelOuter = bvNone
+            BorderStyle = bsNone
+            Color = 16775639
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+          object listCurrencies: TListBox
+            Left = 10
+            Top = 268
+            Width = 131
+            Height = 37
+            Style = lbOwnerDrawVariable
+            BevelOuter = bvNone
+            BorderStyle = bsNone
+            Color = 16766938
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+          end
+          object listLanguages: TListBox
+            Left = 10
+            Top = 181
+            Width = 131
+            Height = 37
+            Style = lbOwnerDrawVariable
+            BevelOuter = bvNone
+            BorderStyle = bsNone
+            Color = 13299455
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Century Gothic'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+          end
         end
       end
     end
+  end
+  object ntfTimerTerminatedNotification: TNotificationCenter
+    Left = 1
+    Top = 386
   end
 end

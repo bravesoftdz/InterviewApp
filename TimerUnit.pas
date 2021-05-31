@@ -2,13 +2,15 @@ unit TimerUnit;
 
 interface
 
-uses Classes, System.SysUtils;
+uses Winapi.Windows, Winapi.Messages, System.SysUtils,
+     Classes,
+     System.Variants, System.DateUtils;
 
   type
-    TTimeChangedEvent = procedure(sec, min, hour : ShortInt);
+    TTimeChangedEvent = procedure(sec, min, hour : ShortInt) of object;
 
   type
-    TTerminatedEvent = procedure;
+    TTerminatedEvent = procedure of object;
 
   type
     TMyThread = class(TThread)
@@ -34,17 +36,19 @@ uses Classes, System.SysUtils;
     public
       constructor Create( timeChangedEventHandler : TTimeChangedEvent;
       terminatedEventHandler : TTerminatedEvent);
+
       property IsRunning : boolean read running;
       procedure Start(sec, min, hour : ShortInt);
-      procedure Stop();
+      procedure Stop;
+      procedure TerminatedHandler;
    end;
-
   implementation
 
 // Implementation of MyTimer //
 constructor TMyTimer.Create( timeChangedEventHandler : TTimeChangedEvent;
 terminatedEventHandler : TTerminatedEvent);
 begin
+// Save handlers to invoke later
   onTimeChanged := timeChangedEventHandler;
   onTerminated := terminatedEventHandler;
 end;
@@ -54,17 +58,28 @@ begin
 
 if not running then
   begin
-    myThread := TMyThread.Create(sec, min, hour, onTimeChanged, onTerminated);
+    myThread := TMyThread.Create(sec, min, hour, onTimeChanged, TerminatedHandler);
     myThread.Priority := tpHighest;
     running := true;
   end;
 
 end;
 
-procedure TMyTimer.Stop();
+procedure TMyTimer.Stop;
 begin
-  myThread.Terminate;
+  if Assigned(myThread) then begin
+    myThread.Terminate;
+    running := false;
+  end;
+end;
+
+// Invokes next handler
+procedure TMyTimer.TerminatedHandler;
+begin
   running := false;
+
+  if Assigned(onTerminated) then
+    myThread.Synchronize(onTerminated);
 end;
 
 // Implementation of MyThread //
@@ -82,7 +97,12 @@ end;
 
 // Runs loop and every +-1000 miliseconds and decrements values
 procedure TMyThread.Execute;
+var
+  nextTick : Int64;
 begin
+  // Declaring where timer begins
+  nextTick := DateTimeToMilliseconds(Now);
+
   while True do
   begin
     if Terminated then break;
@@ -111,9 +131,14 @@ begin
     if Assigned(onTimeChanged)then
       onTimeChanged(s,m,h);
 
-    // Definitely worst way to program timer
+    // Here we wait from previous tick + 1second, so it works correctly
+    nextTick := nextTick + 1000;
 
-    Sleep(1000);
+    while DateTimeToMilliseconds(Now) < nextTick do
+    begin
+      Sleep(nextTick - DateTimeToMilliseconds(Now));
+    end;
+
   end;
 end;
 

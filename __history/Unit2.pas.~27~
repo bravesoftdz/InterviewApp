@@ -1,0 +1,30 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Samples.Spin;
+
+type
+  TTimerEdit = class(TForm)
+    seHours: TSpinEdit;
+    lblHour: TLabel;
+    lblMins: TLabel;
+    seMins: TSpinEdit;
+    lblSecs: TLabel;
+    seSecs: TSpinEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TimerEdit: TTimerEdit;
+
+implementation
+
+{$R *.dfm}
+
+end.

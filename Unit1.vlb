@@ -31,13 +31,13 @@ Coordinates=27,167,64,33
 [pnlApi]
 Coordinates=0,0,46,51
 
-[Label1]
-Coordinates=145,167,46,51
-
 [tabTimer]
 Coordinates=282,80,57,33
 
 [lblMenuTimer]
 Coordinates=10,10,54,51
 Visible=True
+
+[lblSearch]
+Coordinates=145,167,46,51
 
