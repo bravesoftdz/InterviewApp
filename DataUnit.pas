@@ -37,7 +37,7 @@ type
     FSubregion: string;
 
     // Timezones, proper way to declare and use Arrays
-    // but... its time requiring so i've made public fields of arrays
+    // but... its time requiring so i've made public fields of arrays below
     FTimezones: array of string;
     function GetTimezonesArray(index : Integer) : string;
     function GetTimezonesArrayCount : Integer;
@@ -45,8 +45,9 @@ type
     procedure SetTimezonesArrayCount(value : Integer);
 
   public
-    // Not correct, but ok.
+    // Not correct, but ok for one time.
     // In Delphi u cant use array as property... soo...
+    // I had no time to make Get/Set methodes for these fields
     Languages: array of TLanguagesDTO;
     Currencies: array of TCurrenciesDTO;
 

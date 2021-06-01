@@ -2,13 +2,13 @@ program InterviewApp;
 
 uses
   Vcl.Forms,
-  Unit1 in 'Unit1.pas' {Form1},
+  MainUnit in 'MainUnit.pas' {Form1},
   Vcl.Themes,
   Vcl.Styles,
   TimerUnit in 'TimerUnit.pas',
-  Unit2 in 'Unit2.pas' {TimerEdit},
+  TimerEditUnit in 'TimerEditUnit.pas' {TimerEdit},
   DataUnit in 'DataUnit.pas',
-  ApiJsonParse in 'ApiJsonParse.pas';
+  ApiJsonParseUnit in 'ApiJsonParseUnit.pas';
 
 {$R *.res}
 
