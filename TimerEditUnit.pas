@@ -73,7 +73,7 @@ begin
   if edit.Value > 127 then
     edit.Value := 127;
 
-// Notify timer that value is changed
+// Notify timer that value has changed
   if Assigned(onTimeChangedEvent) then
     onTimeChangedEvent(seSecs.Value, seMins.Value, seHours.Value);
 
@@ -89,7 +89,7 @@ begin
   if edit.Value > 59 then
     edit.Value := 59;
 
-// Check lower bound and notify
+// Check lower value and notify
   Self.seHoursChange(Sender);
 end;
 

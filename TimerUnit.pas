@@ -2,8 +2,7 @@ unit TimerUnit;
 
 interface
 
-uses Winapi.Windows, Winapi.Messages, System.SysUtils,
-     Classes,
+uses Winapi.Windows, Winapi.Messages, System.SysUtils, Classes,
      System.Variants, System.DateUtils;
 
   type
@@ -44,7 +43,8 @@ uses Winapi.Windows, Winapi.Messages, System.SysUtils,
    end;
   implementation
 
-// Implementation of MyTimer //
+{$REGION 'Implementation of MyTimer'}
+
 constructor TMyTimer.Create( timeChangedEventHandler : TTimeChangedEvent;
 terminatedEventHandler : TTerminatedEvent);
 begin
@@ -82,7 +82,10 @@ begin
     myThread.Synchronize(onTerminated);
 end;
 
-// Implementation of MyThread //
+{$ENDREGION}
+
+{$REGION 'Implementation of MyThread'}
+
 constructor TMyThread.Create(sec, min, hour : ShortInt;
 timeChangedEventHandler : TTimeChangedEvent;
 terminatedEventHandler : TTerminatedEvent);
@@ -141,5 +144,7 @@ begin
 
   end;
 end;
+
+{$ENDREGION}
 
 end.

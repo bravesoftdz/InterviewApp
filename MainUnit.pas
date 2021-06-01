@@ -181,7 +181,7 @@ procedure TForm1.btnSearchClick(Sender: TObject);
 var
   api : ApiCountries;
   item : TItemDTO;
-  i, count: Integer;
+  i: Integer;
   param : string;
 begin
   api := ApiCountries.Create;

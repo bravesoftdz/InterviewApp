@@ -10,7 +10,7 @@ type
   TLanguagesDTO = class
   private
     FName: string;
-  published
+  public
     property Name: string read FName write FName;
   end;
 
@@ -19,7 +19,7 @@ type
     FCode: string;
     FName: string;
     FSymbol: string;
-  published
+  public
     property Code: string read FCode write FCode;
     property Name: string read FName write FName;
     property Symbol: string read FSymbol write FSymbol;

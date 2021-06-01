@@ -12868,10 +12868,6 @@ object Form1: TForm1
       TabOrder = 0
       object tabTimer: TTabSheet
         TabVisible = False
-        ExplicitLeft = -3
-        ExplicitTop = 0
-        ExplicitWidth = 527
-        ExplicitHeight = 405
         object pnlTimerContainer: TPanel
           Left = 0
           Top = 0
@@ -12882,10 +12878,6 @@ object Form1: TForm1
           Color = 2822400
           ParentBackground = False
           TabOrder = 0
-          ExplicitLeft = 342
-          ExplicitTop = 272
-          ExplicitWidth = 185
-          ExplicitHeight = 41
           object lblTimer: TLabel
             Left = 126
             Top = 110
@@ -12945,8 +12937,6 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = False
         TabVisible = False
-        ExplicitWidth = 527
-        ExplicitHeight = 405
         object lblSearch: TLabel
           Left = 1
           Top = 12

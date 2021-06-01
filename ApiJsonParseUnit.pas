@@ -79,7 +79,6 @@ var
   language : TLanguagesDTO;
 
   i, j : integer;
-  area : TJSonValue;
 begin
 
 // If u give ISO-code as paramater => u get only 1 country back
