@@ -12827,6 +12827,7 @@ object Form1: TForm1
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFF}
+        Stretch = True
         OnClick = pnlApiClick
         OnMouseEnter = pnlApiMouseEnter
         OnMouseLeave = pnlApiMouseLeave
@@ -12862,7 +12863,7 @@ object Form1: TForm1
       Top = -10
       Width = 545
       Height = 445
-      ActivePage = tabApi
+      ActivePage = tabTimer
       Align = alCustom
       TabOrder = 0
       object tabTimer: TTabSheet
@@ -12886,17 +12887,17 @@ object Form1: TForm1
           ExplicitWidth = 185
           ExplicitHeight = 41
           object lblTimer: TLabel
-            Left = 118
+            Left = 126
             Top = 110
-            Width = 269
-            Height = 93
+            Width = 258
+            Height = 106
             Cursor = crHandPoint
             Caption = '0:00:00'
             Color = clWhite
             Font.Charset = ANSI_CHARSET
             Font.Color = clWhite
             Font.Height = -80
-            Font.Name = 'Century Gothic'
+            Font.Name = 'Yu Gothic UI'
             Font.Style = [fsBold]
             ParentColor = False
             ParentFont = False

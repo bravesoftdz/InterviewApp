@@ -202,7 +202,7 @@ begin
   item := api.GetCountryByParameter(param, edValue.Text);
 
   if item = nil then begin
-    ShowMessage('Something went wrong!');
+    ShowMessage('Can''t find value ' + edValue.Text);
     exit;
   end;
 
