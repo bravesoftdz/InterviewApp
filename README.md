@@ -12,8 +12,8 @@ https://flagcdn.com => voor vlag <br />
 <br />
 Voer de naam/ISO-code/hoofdstad (in het engels) van het land in en druk op SEARCH. <br />
 <br />
-![Screenshot](Schermafbeelding 2021-06-04 214444.png)
+![Screenshot](Schermafbeelding 2021-06-04 214444.jpg)
 <br />
-![Screenshot](Schermafbeelding 2021-06-04 214524.png)
+![Screenshot](Schermafbeelding 2021-06-04 214524.jpg)
 <br />
 Voor andere(betere) projecten / voorbeelden van mijn code in C#: zie andere repositoriën
