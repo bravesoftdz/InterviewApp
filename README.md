@@ -12,7 +12,7 @@ https://flagcdn.com => voor vlag <br />
 <br />
 Voer de naam/ISO-code/hoofdstad (in het engels) van het land in en druk op SEARCH. <br />
 <br />
-![Screenshot](Schermafbeelding 2021-06-04 214444.jpg)
+![Screenshot](Screenshots/Schermafbeelding 2021-06-04 214444.jpg)
 <br />
 ![Screenshot](Schermafbeelding 2021-06-04 214524.jpg)
 <br />
