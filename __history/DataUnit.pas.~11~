@@ -1,5 +1,3 @@
-// Class describes fields needed to parse json from Api
-
 unit DataUnit;
 
 interface

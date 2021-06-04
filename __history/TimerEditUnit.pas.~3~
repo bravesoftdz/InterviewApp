@@ -1,5 +1,3 @@
-// Class describes TimerEdit => 'messagebox' to choose time in timer
-
 unit TimerEditUnit;
 
 interface

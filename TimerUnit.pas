@@ -1,3 +1,5 @@
+// Class describes Timer and async method(class) to count ticks
+
 unit TimerUnit;
 
 interface

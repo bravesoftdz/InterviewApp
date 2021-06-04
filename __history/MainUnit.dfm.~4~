@@ -12937,10 +12937,6 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = False
         TabVisible = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object lblSearch: TLabel
           Left = 1
           Top = 12

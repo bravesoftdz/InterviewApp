@@ -1,5 +1,3 @@
-// Class describes Parsing json data(from api) to object and getting flag image from api
-
 unit ApiJsonParseUnit;
 
 interface

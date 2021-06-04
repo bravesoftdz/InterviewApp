@@ -2,14 +2,14 @@ unit TimerUnit;
 
 interface
 
-uses Classes, System.SysUtils, Vcl.Dialogs, Winapi.Windows, Winapi.Messages,
+uses Winapi.Windows, Winapi.Messages, System.SysUtils, Classes,
      System.Variants, System.DateUtils;
 
   type
-    TTimeChangedEvent = procedure(sec, min, hour : ShortInt);
+    TTimeChangedEvent = procedure(sec, min, hour : ShortInt) of object;
 
   type
-    TTerminatedEvent = procedure;
+    TTerminatedEvent = procedure of object;
 
   type
     TMyThread = class(TThread)
@@ -35,17 +35,20 @@ uses Classes, System.SysUtils, Vcl.Dialogs, Winapi.Windows, Winapi.Messages,
     public
       constructor Create( timeChangedEventHandler : TTimeChangedEvent;
       terminatedEventHandler : TTerminatedEvent);
+
       property IsRunning : boolean read running;
       procedure Start(sec, min, hour : ShortInt);
-      procedure Stop();
+      procedure Stop;
+      procedure TerminatedHandler;
    end;
-
   implementation
 
-// Implementation of MyTimer //
+{$REGION 'Implementation of MyTimer'}
+
 constructor TMyTimer.Create( timeChangedEventHandler : TTimeChangedEvent;
 terminatedEventHandler : TTerminatedEvent);
 begin
+// Save handlers to invoke later
   onTimeChanged := timeChangedEventHandler;
   onTerminated := terminatedEventHandler;
 end;
@@ -55,20 +58,34 @@ begin
 
 if not running then
   begin
-    myThread := TMyThread.Create(sec, min, hour, onTimeChanged, onTerminated);
+    myThread := TMyThread.Create(sec, min, hour, onTimeChanged, TerminatedHandler);
     myThread.Priority := tpHighest;
     running := true;
   end;
 
 end;
 
-procedure TMyTimer.Stop();
+procedure TMyTimer.Stop;
 begin
-  myThread.Terminate;
-  running := false;
+  if Assigned(myThread) then begin
+    myThread.Terminate;
+    running := false;
+  end;
 end;
 
-// Implementation of MyThread //
+// Invokes next handler
+procedure TMyTimer.TerminatedHandler;
+begin
+  running := false;
+
+  if Assigned(onTerminated) then
+    myThread.Synchronize(onTerminated);
+end;
+
+{$ENDREGION}
+
+{$REGION 'Implementation of MyThread'}
+
 constructor TMyThread.Create(sec, min, hour : ShortInt;
 timeChangedEventHandler : TTimeChangedEvent;
 terminatedEventHandler : TTerminatedEvent);
@@ -127,5 +144,7 @@ begin
 
   end;
 end;
+
+{$ENDREGION}
 
 end.
