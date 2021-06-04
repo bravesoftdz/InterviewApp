@@ -11,3 +11,9 @@ https://restcountries.eu => voor info over het land <br />
 https://flagcdn.com => voor vlag <br />
 <br />
 Voer de naam/ISO-code/hoofdstad (in het engels) van het land in en druk op SEARCH. <br />
+<br />
+![Screenshot](Schermafbeelding 2021-06-04 214444.png)
+<br />
+![Screenshot](Schermafbeelding 2021-06-04 214524.png)
+<br />
+Voor andere(betere) projecten / voorbeelden van mijn code in C#: zie andere repositoriën
