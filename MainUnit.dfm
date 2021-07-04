@@ -9539,10 +9539,10 @@ object Form1: TForm1
       ExplicitHeight = 405
     end
     object pnlTimer: TPanel
-      Left = 0
+      Left = -4
       Top = 38
       Width = 190
-      Height = 40
+      Height = 43
       Cursor = crHandPoint
       Margins.Left = 0
       Margins.Top = 0
@@ -9597,7 +9597,7 @@ object Form1: TForm1
       end
       object lblMenuTimer: TLabel
         Left = 64
-        Top = 12
+        Top = 10
         Width = 49
         Height = 23
         Caption = 'Timer'
@@ -9613,7 +9613,7 @@ object Form1: TForm1
       end
     end
     object pnlApi: TPanel
-      Left = -2
+      Left = -4
       Top = 81
       Width = 190
       Height = 40
@@ -12833,8 +12833,8 @@ object Form1: TForm1
         OnMouseLeave = pnlApiMouseLeave
       end
       object lblApi: TLabel
-        Left = 64
-        Top = 11
+        Left = 62
+        Top = 10
         Width = 32
         Height = 23
         Caption = 'Api'
@@ -12847,6 +12847,93 @@ object Form1: TForm1
         OnClick = pnlApiClick
         OnMouseEnter = pnlApiMouseEnter
         OnMouseLeave = pnlApiMouseLeave
+      end
+    end
+    object pnlPassGen: TPanel
+      Left = -4
+      Top = 124
+      Width = 190
+      Height = 40
+      Cursor = crHandPoint
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
+      BevelOuter = bvNone
+      Color = 16777099
+      TabOrder = 2
+      OnClick = pnlPassGenClick
+      OnMouseEnter = pnlPassGenMouseEnter
+      OnMouseLeave = pnlPassGenMouseLeave
+      object imgPassGen: TImage
+        AlignWithMargins = True
+        Left = 30
+        Top = 6
+        Width = 30
+        Height = 30
+        Margins.Left = 35
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
+          00400806000000AA6971DE0000000473424954080808087C0864880000000970
+          48597300000B1300000B1301009A9C18000004804944415478DAED9B69C80D51
+          18C71F6BB253F6B22F49C82E242149B2935DB69048C992242559F2417642F625
+          3EC8922512AF7DEBB5850FB628B264DF92E5FFEF99B7F4BA3367EEDCD9EEEDFE
+          EBF7E1BD73EECC99FF9D39E73CCF79DE02129EEA80EEA03D6808AA8392A030F8
+          005E82BBE02A38066E85D1A902019FBF0818022683D6497EF73ED860F1251D0D
+          E80F96819A299EE735980FD681DFE9604079B011F4F5F9BC17459FA6A7713680
+          EFF65150C3E7F3E6E92DE807CEC6D18066E0A4E81310A4BE813EE0449C0CA807
+          CE830A01DF7C9E38287602D7E2604009701934F2F0DD9F561F0A7BF8EE33D014
+          BC8BDA80356092CBB66FC0167018E48ACEFFEC4345D012F4121DE84AB93CDF1E
+          AB7D6406B4111D9D4DE7F905968285629ED3CB8179602A28E8A20F9DC1E9A80C
+          E0A0D7C5D0E6A3E8C87D2AC9737705FB4059433BFE00EDA230A0859807A11FD6
+          8D9CF3788D56A2BF6E09433B2EAF2F846DC05A30D1D0660A5895C235A8A160A7
+          A10D97CB13C23480DF63F052D1A10D831A8E117F523480E2E2AABBC3712E972B
+          79B99657039A809B8636BDC1411F6E9E6A2BFAAE3BA931B8139601A3C16687E3
+          FC45AA888EFE7EE901A8EF707C14D81696014BC04C87E3BBC0301F6F9E32AD37
+          38C5CE0DCB804D608CC3F119A2A1B09FE280BAC2E1F87A310FCABE19B0170C72
+          383E5CCC2377B232CD063BADEB8662C07ED184879D065A6DFC1467944B0EC717
+          8139996C00C5B125D1DAFF91E862E865A61B403168AAF14FDF1950E580EF5E4E
+          968E06F8AAAC015903B20618C5A40443DF9AA090F5D934D169C94ECB45D36451
+          894BF0C7E0BA18022493013D45575FB522BC9954F4507457EAB81703B8F2DA21
+          C16F9F052DEE260D16CD2EB93680713EDD2B1975EF7D12D372B54537565C1930
+          5DFC0F66A256C2EC949D01DBC543601173317F31D6AD01A6692E1DC5087670D6
+          80AC015903B206C4C18057A2334DAEF57773D15927C8EDF5D818C0AC0E77713E
+          E7FB9C3BC22CAD1994F419D3C8006E8B730BDC2E4061E0C55DA06E996800D7E4
+          7545A334273500F7C4FF18247203B857E8B656906343D34C3380D198DBF7FB80
+          E8DE624619C00289AE2EDB9E011D33CD0096C65496FF47FFFC6245C80B502CD3
+          0CA01688D6FF3869319815C0B563610073750C49B7DA1C1F2FBAC91944162A16
+          06E489B9C623F93EE3A07720C06BC6CA80446973766E77D6809818C0397B40C8
+          0670D7775780D74C58556A67006B6D4604D89944E52CAC249D11E03559D532CE
+          AD01A61AA054F515F4105DF050AC3665A0E4F7DCFFAF12D610D919C08AAB2D01
+          768662449863F5A18304BF01C3C77F8F5B035880F024E00E85299A5D4D7485E9
+          CA008AF5384E1BA0E9243E6909630B270358E7B723EA9EFB24DBED7A2703B815
+          CEED65BFE3F2B07545B4D4366116CA34F03059C91ADDA251DF8547B1708A4998
+          DB760DDC8CBCA6BAE0B88ABFF84831BCC66EA71E96A0AE1677FFC21207FDB2FA
+          BCD1D43099B997D91C86B155A3BE3B839E8BEE319C71D338D9C50773F7B345CB
+          4ECA447DA7F9F41EAC145D529BB24E9E0DC85371D1FC3EF3F71C28B9702A2DE1
+          BD227CC43F892ED66E88D6001D12FDAFD2A4F41736D8F3419DAD04EA00000000
+          49454E44AE426082}
+        Proportional = True
+        Stretch = True
+        OnClick = pnlPassGenClick
+        OnMouseEnter = pnlPassGenMouseEnter
+        OnMouseLeave = pnlPassGenMouseLeave
+      end
+      object lblPassGen: TLabel
+        Left = 62
+        Top = 15
+        Width = 118
+        Height = 16
+        Caption = 'Password Generator'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = pnlPassGenClick
+        OnMouseEnter = pnlPassGenMouseEnter
+        OnMouseLeave = pnlPassGenMouseLeave
       end
     end
   end
@@ -12863,11 +12950,13 @@ object Form1: TForm1
       Top = -10
       Width = 545
       Height = 445
-      ActivePage = tabTimer
+      ActivePage = tabPassGen
       Align = alCustom
       TabOrder = 0
       object tabTimer: TTabSheet
         TabVisible = False
+        ExplicitTop = 24
+        ExplicitHeight = 417
         object pnlTimerContainer: TPanel
           Left = 0
           Top = 0
@@ -12894,8 +12983,6 @@ object Form1: TForm1
             ParentColor = False
             ParentFont = False
             OnClick = lblTimerClick
-            OnMouseEnter = lblTimerMouseEnter
-            OnMouseLeave = lblTimerMouseLeave
           end
           object btnStop: TSpeedButton
             Left = 272
@@ -12937,10 +13024,6 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = False
         TabVisible = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object lblSearch: TLabel
           Left = 1
           Top = 12
@@ -13270,6 +13353,230 @@ object Form1: TForm1
             ParentFont = False
             TabOrder = 2
           end
+        end
+      end
+      object tabPassGen: TTabSheet
+        ImageIndex = 2
+        TabVisible = False
+        ExplicitTop = 10
+        object lblNumbers: TLabel
+          Left = 24
+          Top = 26
+          Width = 145
+          Height = 21
+          Caption = 'Include Numbers:'
+          Color = clBlack
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblLowChar: TLabel
+          Left = 24
+          Top = 55
+          Width = 261
+          Height = 21
+          Caption = 'Include Lowercase Characters:'
+          Color = clBlack
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblUpChar: TLabel
+          Left = 24
+          Top = 86
+          Width = 264
+          Height = 21
+          Caption = 'Include Uppercase Characters:'
+          Color = clBlack
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblSymbols: TLabel
+          Left = 24
+          Top = 118
+          Width = 136
+          Height = 21
+          Caption = 'Include Symbols:'
+          Color = clBlack
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object btnGenerate: TSpeedButton
+          Left = 168
+          Top = 232
+          Width = 153
+          Height = 57
+          Cursor = crHandPoint
+          Caption = 'GENERATE'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = 16747556
+          Font.Height = -23
+          Font.Name = 'Century Gothic'
+          Font.Style = [fsBold]
+          Layout = blGlyphTop
+          ParentFont = False
+          Spacing = 5
+          OnClick = btnGenerateClick
+        end
+        object lblLength: TLabel
+          Left = 24
+          Top = 182
+          Width = 145
+          Height = 21
+          Caption = 'Password Length:'
+          Color = clBlack
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object imgCopy: TImage
+          Left = 391
+          Top = 303
+          Width = 50
+          Height = 45
+          Cursor = crHandPoint
+          Picture.Data = {
+            0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
+            00400806000000AA6971DE0000000473424954080808087C0864880000000970
+            48597300000B1300000B1301009A9C18000001B04944415478DAED9B4D2B4451
+            1CC6CF08C9CB46EC98223656368A858D952D9A1229DFC04259C85EB2513E8052
+            4829BE809D97643365CB422C2959B031C6F3EF9ACD9DB9B95373CEA3EEF3D46F
+            739BCEFC9FDFCCDCE6D4B93997F1E4D803B0934680BD66140C8056E2AC8FE03A
+            B48069B00B8688C52B3906F32105D89B1D8026767386805EF000BAD8AD590256
+            C00EBB3153C01E586637660A380173210660470224400224A051025AC02C9802
+            DD2EFC3EA30C5EC13938055F21050C83333012B87452EEC08C8BFECC7917609F
+            7611F4B35BC7629B27DBC4BDF916B005D6D86D13B209D67D0BB0AFD920BB6942
+            EE5DF4F3F42AA0E4AA778C97E03970D93C98A8315BB36F01E51AD70ABF6B848C
+            CD76544747099000099000099000099000099000099000099000099000099000
+            09900009900009900009B08C83BED8B52770931501F544022440022440022440
+            02244002B22AE013B4052E9B361FA0C3B7802B577D3CEDBFE4024CFA16B004F6
+            D94D13B2080E7D0BB0356CAB5C60B78DC5EE070B69866F44EC34E60658059DE4
+            E2EF60DB45E7844BA10454D20EC6408F87B5FFCA377801B72EBA31A78A1E9E66
+            0FC0CE0F68D1EA414B74B4750000000049454E44AE426082}
+          Proportional = True
+          Stretch = True
+          OnClick = imgCopyClick
+        end
+        object chbNumbers: TCheckBox
+          Left = 339
+          Top = 30
+          Width = 150
+          Height = 20
+          Caption = 'e.g. 123456'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = False
+          TabOrder = 0
+        end
+        object chbLowChar: TCheckBox
+          Left = 339
+          Top = 59
+          Width = 150
+          Height = 20
+          Caption = 'e.g. abcdef'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = False
+          TabOrder = 1
+        end
+        object chbUpChar: TCheckBox
+          Left = 339
+          Top = 90
+          Width = 150
+          Height = 20
+          Caption = 'e.g. ABCDEF'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = False
+          TabOrder = 2
+        end
+        object chbSymbols: TCheckBox
+          Left = 339
+          Top = 122
+          Width = 150
+          Height = 20
+          Caption = 'e.g. @#$%&?'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = False
+          TabOrder = 3
+        end
+        object seLength: TSpinEdit
+          Left = 339
+          Top = 174
+          Width = 121
+          Height = 29
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxValue = 20
+          MinValue = 6
+          ParentFont = False
+          TabOrder = 4
+          Value = 10
+        end
+        object editPassword: TEdit
+          Left = 77
+          Top = 312
+          Width = 308
+          Height = 36
+          Alignment = taCenter
+          BorderStyle = bsNone
+          Color = clBtnFace
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -27
+          Font.Name = 'Century Gothic'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 5
+          Text = 'Password'
+          OnClick = editPasswordClick
         end
       end
     end

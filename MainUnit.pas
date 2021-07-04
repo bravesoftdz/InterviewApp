@@ -1,5 +1,4 @@
-// Class describes Timer tab and Api Tab
-
+// Class describes Timer tab, Api Tab and Pass Generator Tab
 unit MainUnit;
 
 interface
@@ -8,7 +7,10 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
   Vcl.Imaging.jpeg, Vcl.ExtCtrls, Vcl.WinXPanels, Vcl.ComCtrls, Vcl.Buttons, TimerUnit, TimerEditUnit,
-  System.Notification, DataUnit, ApiJsonParseUnit;
+  System.Notification, DataUnit, ApiJsonParseUnit, Vcl.Samples.Spin, Vcl.Clipbrd;
+
+type
+  TCharArray = array of char;
 
 type
   TForm1 = class(TForm)
@@ -53,6 +55,23 @@ type
     Label9: TLabel;
     lblSubRegion: TLabel;
     pnlTimerContainer: TPanel;
+    tabPassGen: TTabSheet;
+    lblNumbers: TLabel;
+    pnlPassGen: TPanel;
+    imgPassGen: TImage;
+    lblPassGen: TLabel;
+    chbNumbers: TCheckBox;
+    chbLowChar: TCheckBox;
+    lblLowChar: TLabel;
+    chbUpChar: TCheckBox;
+    lblUpChar: TLabel;
+    chbSymbols: TCheckBox;
+    lblSymbols: TLabel;
+    btnGenerate: TSpeedButton;
+    seLength: TSpinEdit;
+    lblLength: TLabel;
+    editPassword: TEdit;
+    imgCopy: TImage;
     procedure pnlTimerMouseEnter(Sender: TObject);
     procedure pnlTimerMouseLeave(Sender: TObject);
     procedure pnlTimerClick(Sender: TObject);
@@ -63,15 +82,33 @@ type
     procedure btnStopClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure lblTimerClick(Sender: TObject);
-    procedure lblTimerMouseEnter(Sender: TObject);
-    procedure lblTimerMouseLeave(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
     procedure edValueKeyPress(Sender: TObject; var Key: Char);
+    procedure pnlPassGenClick(Sender: TObject);
+    procedure pnlPassGenMouseEnter(Sender: TObject);
+    procedure pnlPassGenMouseLeave(Sender: TObject);
+    procedure btnGenerateClick(Sender: TObject);
+    procedure editPasswordClick(Sender: TObject);
+    procedure imgCopyClick(Sender: TObject);
   public
     procedure TimerTerminatedHandler;
     procedure TimeChangedHandler(sec, min, hour : ShortInt);
+    procedure AppendArrays(var destination : TCharArray; source : TCharArray);
+    procedure SwapElements(var source : TCharArray; a, b : Integer);
   end;
 
+const
+  upChar : TCharArray = ['A','B','C','D','E','F','G','H','I',
+        'J','K','L','M','N','O','P','Q','R',
+        'S','T','U','V','W','X','Y','Z'];
+
+  lowChar : TCharArray = ['a','b','c','d','e','f','g','h','i',
+        'j','k','l','m','n','o','p','q','r',
+        's','t','u','v','w','x','y','z'];
+
+  numbers : TCharArray = ['0','1','2','3','4','5','6','7','8','9'];
+
+  symbols : TCharArray = ['@','#','$','%','&','?',   '@','#','$','%','&','?'];
 var
   Form1 : TForm1;
   timer : TMyTimer;
@@ -246,33 +283,115 @@ end;
 
 {$ENDREGION}
 
+{$REGION 'Pass Generator Procedures'}
+
+procedure TForm1.btnGenerateClick(Sender: TObject);
+var
+  allCharacters : TCharArray;
+  I : Integer;
+  pass : string;
+begin
+  SetLength(allCharacters, 0);
+
+  // Adding all needed symbols to allCharacters array
+  if chbNumbers.Checked then
+    AppendArrays(allCharacters, numbers);
+
+  if chbLowChar.Checked then
+    AppendArrays(allCharacters, lowChar);
+
+  if chbUpChar.Checked then
+    AppendArrays(allCharacters, upChar);
+
+  if chbSymbols.Checked then
+    AppendArrays(allCharacters, symbols);
+
+  // Checking if there are symbols added
+  if Length(allCharacters) < 1 then begin
+    editPassword.Text := 'Choose symbols!';
+    exit;
+  end;
+
+  // If total symbols is not enough to make pass then adding lowchar symbols
+  if Length(allCharacters) < seLength.Value then
+    AppendArrays(allCharacters, lowChar);
+
+  // Shuffel array
+  for I := 0 to Length(allCharacters) - 1 do
+    SwapElements(allCharacters, i, Random(Length(allCharacters)));
+
+  // Make string from char array
+  for I := 0 to seLength.Value do
+    pass := pass + allCharacters[i];
+
+  editPassword.Text := pass;
+end;
+
+procedure TForm1.AppendArrays(var destination : TCharArray; source : TCharArray);
+var
+  oldLength, i : Integer;
+begin
+  // Copy old value to Result
+  oldLength := Length(destination);
+
+  // Adding source array to Result
+  SetLength(destination, oldLength + Length(source));
+
+  for i := oldLength to Length(destination) do
+    destination[i] := source[i-oldLength];
+end;
+
+// Swap 2 elements in an array
+procedure TForm1.SwapElements(var source : TCharArray; a, b : Integer);
+var
+  temp : char;
+begin
+  temp := source[a];
+  source[a] := source[b];
+  source[b] := temp;
+end;
+
+procedure TForm1.editPasswordClick(Sender: TObject);
+begin
+  editPassword.SelectAll;
+end;
+
+procedure TForm1.imgCopyClick(Sender: TObject);
+begin
+// Copy to clipboard
+  Clipboard.AsText := editPassword.Text;
+end;
+
+{$ENDREGION}
+
 {$REGION 'Animations'}
 
-procedure TForm1.lblTimerMouseEnter(Sender: TObject);
-begin
-  lblTimer.Font.Color := $00FFFF8A;
-end;
-
-procedure TForm1.lblTimerMouseLeave(Sender: TObject);
-begin
-  lblTimer.Font.Color := clWhite;
-end;
-
+// Clicks
 procedure TForm1.pnlApiClick(Sender: TObject);
 begin
   tabApi.Visible := true;
   tabTimer.Visible := false;
+  tabPassGen.Visible := false;
 end;
 
 procedure TForm1.pnlTimerClick(Sender: TObject);
 begin
   tabTimer.Visible := true;
   tabApi.Visible := false;
+  tabPassGen.Visible := false;
 end;
+
+procedure TForm1.pnlPassGenClick(Sender: TObject);
+begin
+  tabTimer.Visible := false;
+  tabApi.Visible := false;
+  tabPassGen.Visible := true;
+end;
+// Clicks
 
 procedure TForm1.pnlApiMouseEnter(Sender: TObject);
 begin
-   pnlApi.ParentBackground := false;
+  pnlApi.ParentBackground := false;
 end;
 
 procedure TForm1.pnlApiMouseLeave(Sender: TObject);
@@ -288,6 +407,16 @@ end;
 procedure TForm1.pnlTimerMouseLeave(Sender: TObject);
 begin
   pnlTimer.ParentBackground := true;
+end;
+
+procedure TForm1.pnlPassGenMouseEnter(Sender: TObject);
+begin
+  pnlPassGen.ParentBackground := false;
+end;
+
+procedure TForm1.pnlPassGenMouseLeave(Sender: TObject);
+begin
+  pnlPassGen.ParentBackground := true;
 end;
 
 {$ENDREGION}
